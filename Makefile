@@ -206,6 +206,10 @@ else
 	CFLAGS += -g
 endif
 
+ifeq ($(CC),tcc)
+	LIBS += -lm
+endif
+
 default: $(PLAT)
 
 # Build for the specified platform
@@ -338,7 +342,8 @@ $(ENAME).app : $(ENAME)
 # NOTE: Tracking dependencies might not work on older systems - disable this if so
 ifeq ($(TRACK_DEPENDENCIES), 1)
 
-DEPFLAGS = -MT $@ -MMD -MP -MF $(BUILD_DIR)/$*.d
+#DEPFLAGS = -MT $@ -MMD -MP -MF $(BUILD_DIR)/$*.d
+DEPFLAGS = 
 DEPFILES := $(patsubst %.o, %.d, $(OBJECTS))
 $(DEPFILES):
 

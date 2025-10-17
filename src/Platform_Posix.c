@@ -925,6 +925,7 @@ static cc_result Process_RawStart(const char* path, char** argv) {
 		/* We do nothing here.. */
 		return 0;
 	}
+	return 0;
 }
 
 static cc_result Process_RawGetExePath(char* path, int* len);

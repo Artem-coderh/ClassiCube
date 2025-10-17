@@ -94,8 +94,11 @@
     /* since the cast below also disables the compiler's */
     /* type check, we introduce a dummy variable, which  */
     /* will be optimized away                            */
+    #if defined(__TINYC__)
+    volatile ft_jmp_buf* jump_buffer = (volatile ft_jmp_buf*)&valid->jump_buffer;
+    #else
     volatile ft_jmp_buf* jump_buffer = &valid->jump_buffer;
-
+    #endif
 
     valid->error = error;
 

@@ -315,6 +315,17 @@ void Model_RenderArm(struct Model* model, struct Entity* e) {
 
 void Model_DrawArmPart(struct ModelPart* part) {
 	struct Model* model  = Models.Active;
+	#if defined(__TINYC__)
+	struct ModelPart arM = *part;
+	arM.rotX = model->armX / 16.0f;
+	arM.rotY = (model->armY + model->armY / 2) / 16.0f;
+
+	if (Models.ClassicArms) {
+		Model_DrawRotate(0, -90 * MATH_DEG2RAD, 120 * MATH_DEG2RAD, &arM, false);
+	} else {
+		Model_DrawRotate(-20 * MATH_DEG2RAD, -70 * MATH_DEG2RAD, 135 * MATH_DEG2RAD, &arM, false);
+	}
+	#else
 	struct ModelPart arm = *part;
 	arm.rotX = model->armX / 16.0f; 
 	arm.rotY = (model->armY + model->armY / 2) / 16.0f;
@@ -324,6 +335,7 @@ void Model_DrawArmPart(struct ModelPart* part) {
 	} else {
 		Model_DrawRotate(-20 * MATH_DEG2RAD, -70 * MATH_DEG2RAD, 135 * MATH_DEG2RAD, &arm, false);
 	}
+	#endif
 }
 
 
