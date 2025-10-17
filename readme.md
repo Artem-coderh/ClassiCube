@@ -3,7 +3,6 @@ To compile on TinyC run
 ```
 make CC=tcc
 ```
-<br>
 ClassiCube is a custom Minecraft Classic compatible client written in C from scratch.<br>
 > [!IMPORTANT]
 **ClassiCube is not affiliated with (or supported by) Mojang AB, Minecraft, or Microsoft in any way.** <br><br>
@@ -492,5 +491,6 @@ Further information (e.g. style) for ClassiCube's source code can be found in th
 ## Sound Credits
 ClassiCube uses sounds from [Freesound.org](https://freesound.org)<br>
 Full credits are listed in [doc/sound-credits.md](doc/sound-credits.md)
+
 
 
